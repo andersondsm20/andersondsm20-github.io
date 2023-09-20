@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aluno</title>
+</head>
+<body>
+    <table align="center" cellpadding="10" cellspacing="0" width="30%" bgcolor="#f0f8ff" border="3" style="border-color: #000000;">
+        <tr>
+            <td>
+                <center><h3 style="color: red;">Cadastro - Matrícula de Aluno</h3></center>
+                <form action="processar_cadastro.php" method="post">
+                     <hr> <!-- Linha abaixo de "Cadastro de Aluno" -->
+                    
+                    <label for="nome" style="font-size: 10px;">Nome<span style="color: red;">*</span></label>
+                    <br><input type="text" id="nome" name="nome" required><br><br>
+                    
+                    <label for="email" style="font-size: 10px;">Email<span style="color: red;">*</span></label>
+                    <br>
+                    <input type="email" id="email" name="email" required style="width: 200px; font-size: 15px;"><br><br>
+
+                    <label for="telefone" style="font-size: 10px;">Telefone</label></label>
+                   <br>
+                        <input type="tel" id="codigo_area" name="codigo_area" style="width: 40px;"> 
+                        <input type="tel" id="telefone" name="telefone" style="width: 100px;">
+                        <br>Codigo
+                        <label for="disciplinas">Telefone</label>  
+                    
+                    <br><br><label for="disciplinas">Disciplinas a Cursar:</label>
+                    
+                    <select id="disciplinas" name="disciplinas">
+                        <option value="PROGRAMAÇÃO WEB">PROGRAMAÇÃO WEB</option>
+                        <option value="ESTRUTURA DE DADOS">ESTRUTURA DE DADOS</option>
+                        <option value="SISTEMAS OPERACIONAIS">SISTEMAS OPERACIONAIS</option>
+                        <option value="MATEMÁTICA">MATEMÁTICA</option>
+                        <option value="CONTABILIDADE">CONTABILIDADE</option>
+                    </select>
+                    <hr> <!-- Linha abaixo de "Disciplinas a Cursar" -->
+                    <center><input type="submit" value="Enviar"></center>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
