@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <style>
+        .box {
+            border: 5px solid #0b0b0b;
+            padding: 20px;
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Conversor de Moedas</h1>
+
+        <form id="converter-form">
+            <label for="moeda-de-origem">Moeda de Origem:</label>
+            <select id="moeda-de-origem">
+                <option value="dolar">Dólar (U$)</option>
+                <option value="euro">Euro (€)</option>
+            </select>
+            
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor" step="0.01" placeholder="Insira o valor">
+            
+            <br><br><label for="moeda-de-destino">Moeda de Destino:</label>
+            <select id="moeda-de-destino">
+                <option value="real">Real (R$)</option>
+            </select>
+
+            <br><br><button type="button" onclick="converterMoedas()">Calcular</button>
+        </form>
+
+        <br><div id="resultado"></div>
+
+        <script>
+            function converterMoedas() {
+                const moedaDeOrigem = document.getElementById("moeda-de-origem").value;
+                const moedaDeDestino = document.getElementById("moeda-de-destino").value;
+                const valorInput = document.getElementById("valor");
+                const resultadoDiv = document.getElementById("resultado");
+
+                const valor = parseFloat(valorInput.value) || 0;
+
+                const cotacoes = {
+                    dolar: 4.93,
+                    euro: 5.26,
+                    real: 1
+                };
+
+                const valorEmReais = valor * (cotacoes[moedaDeOrigem] / cotacoes[moedaDeDestino]);
+
+                resultadoDiv.innerHTML = `O valor em ${moedaDeDestino.toUpperCase()} é: ${valorEmReais.toFixed(2)} ${moedaDeDestino}`;
+            }
+        </script>
+    </div>
+</body>
+</html>
