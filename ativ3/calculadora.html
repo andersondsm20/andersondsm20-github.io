@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        .box {
+            border: 5px solid #0b0b0b;
+            padding: 20px;
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Calculadora</h1>
+
+        <form id="calculator-form">
+            <label for="num1">Número 1:</label>
+            <input type="number" id="num1" step="0.01" placeholder="Insira o primeiro número">
+          
+            <br><br><label for="num2">Número 2:</label>
+            <input type="number" id="num2" step="0.01" placeholder="Insira o segundo número">
+  
+            <br><br><label for="operator">Operação:</label>
+            <select id="operator">
+                <option value="add">Adição (+)</option>
+                <option value="subtract">Subtração (-)</option>
+                <option value="multiply">Multiplicação (*)</option>
+                <option value="divide">Divisão (/)</option>
+            </select>
+            
+            
+            <br><br><button type="button" onclick="calcular()">Calcular</button>
+        </form>
+
+        <br><div id="resultado"></div>
+
+        <script>
+            function calcular() {
+                const num1 = parseFloat(document.getElementById("num1").value) || 0;
+                const num2 = parseFloat(document.getElementById("num2").value) || 0;
+                const operador = document.getElementById("operator").value;
+                const resultadoDiv = document.getElementById("resultado");
+                let resultado;
+
+                switch (operador) {
+                    case "add":
+                        resultado = num1 + num2;
+                        break;
+                    case "subtract":
+                        resultado = num1 - num2;
+                        break;
+                    case "multiply":
+                        resultado = num1 * num2;
+                        break;
+                    case "divide":
+                        if (num2 !== 0) {
+                            resultado = num1 / num2;
+                        } else {
+                            resultadoDiv.innerHTML = "Divisão por zero não é permitida!";
+                            return;
+                        }
+                        break;
+                    default:
+                        resultadoDiv.innerHTML = "Operação inválida";
+                        return;
+                }
+
+                resultadoDiv.innerHTML = `Resultado: ${resultado.toFixed(2)}`;
+            }
+        </script>
+    </div>
+</body>
+</html>
